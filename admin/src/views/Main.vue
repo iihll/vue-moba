@@ -11,6 +11,11 @@
             <el-menu-item index="/categories/create">新建分类</el-menu-item>
             <el-menu-item index="/categories/list">分类列表</el-menu-item>
           </el-menu-item-group>
+          <el-menu-item-group>
+            <template slot="title">物品</template>
+            <el-menu-item index="/items/create">新建物品</el-menu-item>
+            <el-menu-item index="/items/list">物品列表</el-menu-item>
+          </el-menu-item-group>
         </el-submenu>
       </el-menu>
     </el-aside>
@@ -26,7 +31,7 @@
           </el-dropdown-menu>
         </el-dropdown>
         <span>王小虎</span>
-      </el-header> -->
+      </el-header>-->
 
       <el-main>
         <router-view></router-view>
@@ -51,13 +56,13 @@
 export default {
   data() {
     const item = {
-      date: '2016-05-02',
-      name: '王小虎',
-      address: '上海市普陀区金沙江路 1518 弄'
-    }
+      date: "2016-05-02",
+      name: "王小虎",
+      address: "上海市普陀区金沙江路 1518 弄"
+    };
     return {
       tableData: Array(20).fill(item)
-    }
+    };
   }
-}
+};
 </script>
