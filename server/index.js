@@ -8,6 +8,8 @@ app.use(require('cors')())
 // 解析 json
 app.use(express.json())
 
+app.use('/uploads', express.static(__dirname + '/uploads'))
+
 // 引入数据库连接
 require('./plugins/db')(app)
 
