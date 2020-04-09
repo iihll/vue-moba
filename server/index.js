@@ -2,6 +2,9 @@ const express = require('express')
 
 const app = express()
 
+// 全局秘钥
+app.set('secret', 'iihll')
+
 // 设置跨域
 app.use(require('cors')())
 

@@ -8,7 +8,8 @@
       <el-form-item label="图标">
         <el-upload
           class="avatar-uploader"
-          :action="$http.defaults.baseURL + '/upload'"
+          :action="uploadUrl"
+          :headers="getAuthHeaders()"
           :show-file-list="false"
           :on-success="afterUpload"
         >
@@ -31,33 +32,33 @@ export default {
   data() {
     return {
       model: {}
-    };
+    }
   },
   created() {
-    this.id && this.fetch();
+    this.id && this.fetch()
   },
   methods: {
     async save() {
       if (this.id) {
-        await this.$http.put(`rest/items/${this.id}`, this.model);
+        await this.$http.put(`rest/items/${this.id}`, this.model)
       } else {
-        await this.$http.post("rest/items", this.model);
+        await this.$http.post('rest/items', this.model)
       }
-      this.$router.push("/items/list");
-      this.$message.success("保存成功");
+      this.$router.push('/items/list')
+      this.$message.success('保存成功')
     },
     async fetch() {
-      const res = await this.$http.get(`rest/items/${this.id}`);
-      this.model = res.data;
+      const res = await this.$http.get(`rest/items/${this.id}`)
+      this.model = res.data
     },
     afterUpload(res) {
       // console.log(res);
       // vue 显式赋值
-      this.$set(this.model, "icon", res.url);
+      this.$set(this.model, 'icon', res.url)
       // this.model.icon = res.url;
     }
   }
-};
+}
 </script>
 
 <style>

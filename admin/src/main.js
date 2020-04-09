@@ -8,6 +8,21 @@ Vue.config.productionTip = false
 import http from './plugins/http'
 Vue.prototype.$http = http
 
+Vue.mixin({
+  computed: {
+    uploadUrl() {
+      return this.$http.defaults.baseURl + '/upload'
+    }
+  },
+  methods: {
+    getAuthHeaders() {
+      return {
+        Authorization: `Bearer ${localStorage.token || ''}`
+      }
+    }
+  }
+})
+
 new Vue({
   router,
   render: h => h(App)

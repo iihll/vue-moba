@@ -21,8 +21,8 @@ const schema = new mongoose.Schema({
     {
       icon: { type: String },
       name: { type: String },
-      description: { type: String },
-      tips: { type: String }
+      description: { type: String }
+      // tips: { type: String }
     }
   ],
   // 顺风装备字段
@@ -34,15 +34,15 @@ const schema = new mongoose.Schema({
   // 对抗技巧
   battleTips: { type: String },
   // 团战思路
-  teamTips: { type: String },
+  teamTips: { type: String }
   // 英雄关系
   // 最佳搭档
-  partners: [
-    {
-      hero: { type: mongoose.SchemaTypes.ObjectId, ref: 'Hero' },
-      description: { type: String }
-    }
-  ]
+  // partners: [
+  //   {
+  //     hero: { type: mongoose.SchemaTypes.ObjectId, ref: 'Hero' },
+  //     description: { type: String }
+  //   }
+  // ]
 })
 
 module.exports = mongoose.model('Hero', schema)
