@@ -1,0 +1,81 @@
+// colors
+$colors: (
+  'primary': #db9e3f,
+  'info': #4b67af,
+  'white': #fff,
+  'light': #f9f9f9,
+  'light-1': #d4d9de,
+  'grey': #999,
+  'grey-1': #666,
+  'dark-1': #333,
+  'dark': #222,
+  'black': #000
+);
+$border-color: map-get($colors, 'light-1');
+
+// font size
+$base-font-size: 1rem;
+$font-sizes: (
+  // 8px
+    xxs: 0.6154,
+  // 10px
+    xs: 0.7692,
+  // 12px
+    sm: 0.9231,
+  // 13px
+    md: 1,
+  // 14px
+    lg: 1.0769,
+  // 16px
+    xl: 1.2308
+);
+
+// flex
+$flex-jc: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  between: space-between,
+  around: space-around
+);
+$flex-ai: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  // 交叉轴等高
+    stretch: stretch
+);
+
+// spacing
+$spacing-types: (
+  m: margin,
+  p: padding
+);
+$spacing-direction: (
+  t: top,
+  r: right,
+  b: bottom,
+  l: left
+);
+$spacing-base-size: 1rem;
+$spacing-sizes: (
+  0: 0,
+  1: 0.25,
+  2: 0.5,
+  3: 1,
+  4: 1.5,
+  5: 3
+);
+
+// sprite
+$sprite-position: (
+  'blz': 63.546% 15.517%,
+  'gsz': 90.483% 15.614%,
+  'zbsc': 36.746% 0.924%,
+  'tyf': 10.408% 15.517%,
+  'xrzq': 89.733% 1.266%,
+  'rycc': 36.467% 15.287%,
+  'mnzzlk': 9.302% 0.813%,
+  'wzyd': 63.3% 0.927%,
+  'arrow': 38.577% 52.076%
+);

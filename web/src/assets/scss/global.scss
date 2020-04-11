@@ -1,3 +1,5 @@
+@import './varibles';
+
 // reset
 * {
   box-sizing: border-box;
@@ -22,17 +24,6 @@ a {
 }
 
 // colors
-$colors: (
-  'primary': #db9e3f,
-  'white': #fff,
-  'light': #f9f9f9,
-  'grey': #999,
-  'grey-1': #666,
-  'dark-1': #333,
-  'dark': #222,
-  'black': #000
-);
-
 @each $colorKey, $color in $colors {
   .text-#{$colorKey} {
     color: $color;
@@ -45,26 +36,11 @@ $colors: (
 // text align
 @each $var in (left, center, right) {
   .text-#{$var} {
-    text-align: $var;
+    text-align: $var !important;
   }
 }
 
 // font size
-$base-font-size: 1rem;
-$font-sizes: (
-  // 8px
-    xxs: 0.6154,
-  // 10px
-    xs: 0.7692,
-  // 12px
-    sm: 0.9231,
-  // 13px
-    md: 1,
-  // 14px
-    lg: 1.0769,
-  // 16px
-    xl: 1.2308
-);
 @each $sizeKey, $size in $font-sizes {
   .fs-#{$sizeKey} {
     font-size: $size * $base-font-size;
@@ -75,29 +51,17 @@ $font-sizes: (
 .d-flex {
   display: flex;
 }
-.flex-col {
+.flex-column {
   flex-direction: column;
 }
-$flex-jc: (
-  start: flex-start,
-  end: flex-end,
-  center: center,
-  between: space-between,
-  around: space-around
-);
+.flex-wrap {
+  flex-wrap: wrap;
+}
 @each $jcKey, $jc in $flex-jc {
   .jc-#{$jcKey} {
     justify-content: $jc;
   }
 }
-
-$flex-ai: (
-  start: flex-start,
-  end: flex-end,
-  center: center,
-  // 交叉轴等高
-    stretch: stretch
-);
 @each $aiKey, $ai in $flex-ai {
   .ai-#{$aiKey} {
     align-items: $ai;
@@ -113,25 +77,6 @@ $flex-ai: (
 }
 
 // spacing
-$spacing-types: (
-  m: margin,
-  p: padding
-);
-$spacing-direction: (
-  t: top,
-  r: right,
-  b: bottom,
-  l: left
-);
-$spacing-base-size: 1rem;
-$spacing-sizes: (
-  0: 0,
-  1: 0.25,
-  2: 0.5,
-  3: 1,
-  4: 1.5,
-  5: 3
-);
 @each $typeKey, $type in $spacing-types {
   @each $sizeKey, $size in $spacing-sizes {
     // .m-1
@@ -170,12 +115,44 @@ $spacing-sizes: (
 
 // nav
 .nav {
+  display: flex;
   .nav-item {
     border-bottom: 0.2308rem solid transparent;
     padding-bottom: 0.18rem;
     // & 符号平级选择器
     &.active {
-      border-bottom: 0.2308rem solid #fff;
+      color: map-get($colors, 'primary');
+      border-bottom-color: map-get($colors, 'primary');
     }
+  }
+  &.nav-inverse {
+    .nav-item {
+      color: map-get($map: $colors, $key: 'white');
+      &.active {
+        border-bottom-color: map-get($map: $colors, $key: 'white');
+      }
+    }
+  }
+}
+
+// width height
+.w-100 {
+  width: 100%;
+}
+.h-100 {
+  height: 100%;
+}
+
+// sprite
+.sprite {
+  background: url(../images/sprite.png) no-repeat 0 0;
+  background-size: 28.8462rem;
+  display: inline-block;
+}
+@each $spriteKey, $sprite in $sprite-position {
+  .sprite-#{$spriteKey} {
+    background-position: $sprite;
+    width: 2.3846rem;
+    height: 1.8462rem;
   }
 }
