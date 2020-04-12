@@ -11,13 +11,20 @@ import router from './router'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 
 // import style
-import 'swiper/css/swiper.css'
+import 'swiper/dist/css/swiper.css'
 
 Vue.use(VueAwesomeSwiper)
 
 // 引入卡片组件
 import Card from './components/Card.vue'
 Vue.component('m-card', Card)
+
+import ListCard from './components/ListCard.vue'
+Vue.component('m-list-card', ListCard)
+
+// axios
+import http from './plugins/http'
+Vue.prototype.$http = http
 
 Vue.config.productionTip = false
 

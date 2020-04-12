@@ -24,3 +24,12 @@
     <router-view></router-view>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.topbar {
+  // 吸顶效果
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+</style>
