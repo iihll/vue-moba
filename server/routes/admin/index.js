@@ -21,7 +21,7 @@ module.exports = app => {
       // .populate('parent')
       .setOptions(queryOptions)
       // 添加查询限制
-      .limit(10)
+      .limit(100)
     res.send(items)
   })
   router.get('/:id', async (req, res) => {

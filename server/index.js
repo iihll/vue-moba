@@ -18,6 +18,7 @@ require('./plugins/db')(app)
 
 // 引入 admin 路由
 require('./routes/admin')(app)
+require('./routes/web')(app)
 
 app.listen(3000, () => {
   console.log('http://localhost:3000')
