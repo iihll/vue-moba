@@ -23,6 +23,10 @@ a {
   color: #999;
 }
 
+p {
+  line-height: 1.5em;
+}
+
 // colors
 @each $colorKey, $color in $colors {
   .text-#{$colorKey} {
@@ -169,5 +173,12 @@ a {
     background-position: $sprite;
     width: 2.3846rem;
     height: 1.8462rem;
+  }
+}
+
+// borders
+@each $dir in (top, right, bottom, left) {
+  .border-#{$dir} {
+    border-#{$dir}: 1px solid $border-color;
   }
 }
