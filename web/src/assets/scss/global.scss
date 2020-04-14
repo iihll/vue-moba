@@ -123,6 +123,21 @@ p {
   border-radius: 0.1538rem;
   font-size: map-get($font-sizes, 'sm') * $base-font-size;
   padding: 0.3rem 0.6rem;
+  &.btn-lg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: map-get($map: $colors, $key: 'light');
+    border: 1px solid map-get($map: $colors, $key: 'white-1');
+    font-size: map-get($font-sizes, 'md') * $base-font-size;
+    padding: 0.6rem;
+    i {
+      color: map-get($map: $colors, $key: 'primary');
+      font-weight: bold;
+      font-size: map-get($font-sizes, 'md') * $base-font-size;
+      margin-right: 0.5rem;
+    }
+  }
 }
 
 // nav
@@ -181,4 +196,9 @@ p {
   .border-#{$dir} {
     border-#{$dir}: 1px solid $border-color;
   }
+}
+
+// rotate
+.r-180 {
+  transform: rotate(180deg);
 }

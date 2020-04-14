@@ -23,7 +23,7 @@
         </div>
       </div>
       <div class="bg-light py-2 fs-sm d-flex ai-center jc-center" @click="arrow = !arrow">
-        <i class="sprite sprite-arrow mr-1" :class="[arrow ? 'r-180' : '']"></i>
+        <i class="sprite sprite-arrow mr-1" :class="[arrow ? '' : 'r-180']"></i>
         <span>{{ arrow ? '收起' : '展开' }}</span>
       </div>
     </div>
@@ -52,10 +52,16 @@
     <m-list-card title="英雄列表" icon="icon-card-hero" :categories="heroCats">
       <template #items="{category}">
         <div class="d-flex flex-wrap" style="margin: 0 -0.5rem">
-          <div v-for="(hero, i) in category.heroList" :key="i" class="w-20 text-center p-2">
+          <router-link
+            :to="`/heroes/${hero._id}`"
+            tag="div"
+            v-for="(hero, i) in category.heroList"
+            :key="i"
+            class="w-20 text-center p-2"
+          >
             <img :src="hero.avatar" class="w-100" />
             <div>{{ hero.name }}</div>
-          </div>
+          </router-link>
         </div>
       </template>
     </m-list-card>
@@ -152,8 +158,5 @@ export default {
 .arrow {
   height: 4.375rem;
   overflow: hidden;
-}
-.r-180 {
-  transform: rotate(180deg);
 }
 </style>
