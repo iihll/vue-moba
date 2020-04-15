@@ -12,6 +12,8 @@ app.use(require('cors')())
 app.use(express.json())
 
 app.use('/uploads', express.static(__dirname + '/uploads'))
+app.use('/admin', express.static(__dirname + '/admin'))
+app.use('/', express.static(__dirname + '/web'))
 
 // 引入数据库连接
 require('./plugins/db')(app)

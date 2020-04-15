@@ -923,7 +923,7 @@ module.exports = app => {
     res.send(data)
   })
 
-  // 文章详情
+  // 英雄详情
   router.get('/heroes/:id', async (req, res) => {
     const data = await Hero.findById(req.params.id)
       .populate('categories items1 items2 partners.hero')
