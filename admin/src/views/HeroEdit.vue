@@ -198,7 +198,7 @@ export default {
       } else {
         await this.$http.post("rest/heroes", this.model);
       }
-      // this.$router.push("/heroes/list");
+      this.$router.push("/heroes/list");
       this.$message.success("保存成功");
     },
     async fetch() {
