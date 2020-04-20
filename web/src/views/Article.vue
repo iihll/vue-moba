@@ -1,7 +1,7 @@
 <template>
   <div class="page-article" v-if="model">
     <div class="d-flex p-2 ai-center border-bottom">
-      <i class="iconfont icon-back pr-2 text-blue fs-xl" @click="$router.push('/login')"></i>
+      <i class="iconfont icon-back pr-2 text-blue fs-xl" @click="$router.push('/')"></i>
       <strong class="flex-1 text-ellipsis text-blue">{{model.title}}</strong>
       <div class="text-grey fs-xxs ml-4">2019-06-19</div>
     </div>
