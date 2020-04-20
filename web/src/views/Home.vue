@@ -65,6 +65,9 @@
         </div>
       </template>
     </m-list-card>
+
+    <m-list-card title="精彩视频" icon="icon-card-hero"></m-list-card>
+    <m-list-card title="图文攻略" icon="icon-card-hero"></m-list-card>
   </div>
 </template>
 
