@@ -57,7 +57,7 @@ module.exports = app => {
     upload.single('file'),
     async (req, res) => {
       const file = req.file
-      file.url = `http://62.234.215.169/uploads/${file.filename}`
+      file.url = `http://120.55.101.119/uploads/${file.filename}`
       res.send(file)
     }
   )
