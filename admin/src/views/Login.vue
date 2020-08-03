@@ -40,7 +40,7 @@ export default {
 
 <style lang="less" scoped>
 .login-card {
-  width: 40rem;
+  width: 24rem;
   margin: 10rem auto;
 }
 </style>
