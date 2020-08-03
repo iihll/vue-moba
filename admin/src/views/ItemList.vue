@@ -15,7 +15,8 @@
             type="warning"
             size="mini"
             @click="$router.push(`/items/edit/${scope.row._id}`)"
-          >编辑</el-button>
+          >
+          编辑</el-button>
           <el-button type="danger" size="mini" @click="remove(scope.row)">删除</el-button>
         </template>
       </el-table-column>
@@ -36,7 +37,6 @@ export default {
   methods: {
     async fetch() {
       const res = await this.$http.get("rest/items");
-      console.log(res);
       this.items = res.data;
     },
     remove(row) {

@@ -52,10 +52,7 @@ export default {
       this.model = res.data
     },
     afterUpload(res) {
-      // console.log(res);
-      // vue 显式赋值
       this.$set(this.model, 'icon', res.url)
-      // this.model.icon = res.url;
     }
   }
 }
