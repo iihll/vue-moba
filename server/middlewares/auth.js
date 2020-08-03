@@ -8,7 +8,7 @@ module.exports = options => {
       .split(' ')
       .pop()
     assert(token, 401, '请先登录')
-    // 验证 token 结构 id
+    // 验证 token 解构 id
     const { id } = jwt.verify(token, req.app.get('secret'))
     assert(id, 401, '请先登录')
     req.user = await AdminUser.findById(id)

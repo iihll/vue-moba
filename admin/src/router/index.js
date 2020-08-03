@@ -1,64 +1,41 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import Login from '../views/Login.vue'
-import Main from '../views/Main.vue'
-import Welcome from '../views/Welcome.vue'
-
-import CategoryEdit from '../views/CategoryEdit.vue'
-import CategoryList from '../views/CategoryList.vue'
-
-import ItemEdit from '../views/ItemEdit.vue'
-import ItemList from '../views/ItemList.vue'
-
-import HeroEdit from '../views/HeroEdit.vue'
-import HeroList from '../views/HeroList.vue'
-
-import ArticleEdit from '../views/ArticleEdit.vue'
-import ArticleList from '../views/ArticleList.vue'
-
-import AdEdit from '../views/AdEdit.vue'
-import AdList from '../views/AdList.vue'
-
-import AdminUserEdit from '../views/AdminUserEdit.vue'
-import AdminUserList from '../views/AdminUserList.vue'
-
 Vue.use(VueRouter)
 
 const routes = [
-  // 路由元信息
-  { path: '/login', component: Login, meta: { isPublic: true } },
+  { path: '/login', component: () => import('../views/Login.vue'), meta: { isPublic: true } },
   {
     path: '/',
     name: 'Main',
-    component: Main,
+    component: () => import('../views/Main.vue'),
     redirect: '/welcome',
     children: [
-      { path: '/welcome', component: Welcome },
+      { path: '/welcome', component: () => import('../views/Welcome.vue') },
 
-      { path: '/categories/create', component: CategoryEdit },
-      { path: '/categories/edit/:id', component: CategoryEdit, props: true },
-      { path: '/categories/list', component: CategoryList },
+      { path: '/categories/create', component: () => import('../views/CategoryEdit.vue') },
+      { path: '/categories/edit/:id', component: () => import('../views/CategoryEdit.vue'), props: true },
+      { path: '/categories/list', component: () => import('../views/CategoryList.vue') },
 
-      { path: '/items/create', component: ItemEdit },
-      { path: '/items/edit/:id', component: ItemEdit, props: true },
-      { path: '/items/list', component: ItemList },
+      { path: '/items/create', component: () => import('../views/ItemEdit.vue') },
+      { path: '/items/edit/:id', component: () => import('../views/ItemEdit.vue'), props: true },
+      { path: '/items/list', component: () => import('../views/ItemList.vue') },
 
-      { path: '/heroes/create', component: HeroEdit },
-      { path: '/heroes/edit/:id', component: HeroEdit, props: true },
-      { path: '/heroes/list', component: HeroList },
+      { path: '/heroes/create', component: () => import('../views/HeroEdit.vue') },
+      { path: '/heroes/edit/:id', component: () => import('../views/HeroEdit.vue'), props: true },
+      { path: '/heroes/list', component: () => import('../views/HeroList.vue') },
 
-      { path: '/articles/create', component: ArticleEdit },
-      { path: '/articles/edit/:id', component: ArticleEdit, props: true },
-      { path: '/articles/list', component: ArticleList },
+      { path: '/articles/create', component: () => import('../views/ArticleEdit.vue') },
+      { path: '/articles/edit/:id', component: () => import('../views/ArticleEdit.vue'), props: true },
+      { path: '/articles/list', component: () => import('../views/ArticleList.vue') },
 
-      { path: '/ads/create', component: AdEdit },
-      { path: '/ads/edit/:id', component: AdEdit, props: true },
-      { path: '/ads/list', component: AdList },
+      { path: '/ads/create', component: () => import('../views/AdEdit.vue') },
+      { path: '/ads/edit/:id', component: () => import('../views/AdList.vue'), props: true },
+      { path: '/ads/list', component: () => import('../views/AdList.vue') },
 
-      { path: '/admin_users/create', component: AdminUserEdit },
-      { path: '/admin_users/edit/:id', component: AdminUserEdit, props: true },
-      { path: '/admin_users/list', component: AdminUserList }
+      { path: '/admin_users/create', component: () => import('../views/AdminUserEdit.vue') },
+      { path: '/admin_users/edit/:id', component: () => import('../views/AdminUserEdit.vue'), props: true },
+      { path: '/admin_users/list', component: () => import('../views/AdminUserList.vue') }
     ]
   }
 ]
@@ -67,7 +44,6 @@ const router = new VueRouter({
   routes
 })
 
-// 导航守卫
 router.beforeEach((to, from, next) => {
   if (!to.meta.isPublic && !localStorage.token) {
     return next('/login')
